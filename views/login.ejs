@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Page</title>
+    <style>
+        /* Variables */
+        :root {
+            --blue-dark: #1C202A;
+            --blue: #2D3543;
+            --blue-light: #737D9C;
+            --red-dark: #C0180C;
+            --red: #E0280C;
+            --red-light: #F0382C;
+            --gray-light: #c1c1c1;
+            --gray: #969696;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--blue-dark);
+            background-image: url(http://www.cfdesigner.com/codepen/rocket-page-bkg.png);
+            background-position: center;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 100%;
+            height: 100vh;
+            letter-spacing: calc(0.5 / 16)rem;
+            line-height: calc(24 / 16)rem;
+            position: relative;
+            width: 100vw;
+        }
+
+        h1, p {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: calc(40 / 16)rem;
+            font-weight: 700;
+            letter-spacing: calc(2 / 16)rem;
+        }
+
+        p {
+            font-size: calc(16 / 16)rem;
+            font-weight: 400;
+        }
+
+        #container {
+            color: #fff;
+            text-align: center;
+            min-height: 525px;
+            width: 320px;
+        }
+
+        .buttons {
+            margin: 0;
+            padding: 0;
+        }
+
+        .buttons li {
+            list-style-type: none;
+            margin-bottom: 1rem;
+        }
+
+        .buttons li:last-child {
+            margin-bottom: 0;
+        }
+
+        .buttons a {
+            border: solid 2px #fff;
+            border-radius: 4px;
+            color: #fff;
+            display: block;
+            font-weight: 600;
+            padding: 1rem;
+            padding: calc(1rem - 2px);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            vertical-align: middle;
+        }
+
+        .buttons a:hover {
+            background: var(--blue-light);
+            border-color: var(--blue-light);
+        }
+
+        .buttons .primary {
+            background-color: var(--red);
+            border-color: var(--red);
+            border: none;
+            border-bottom: solid 4px var(--red-dark);
+            color: #fff;
+        }
+
+        .buttons .primary:hover {
+            background: var(--red-light);
+            border-color: var(--red-dark);
+        }
+
+        .buttons .primary:active {
+            background: var(--red-dark);
+        }
+
+        .buttons .minor {
+            border: none;
+            color: var(--gray-light);
+            display: inline-block;
+            padding: 0.5rem;
+        }
+
+        .buttons .minor:hover {
+            background: none;
+            color: #fff;
+        }
+
+        .buttons .disabled {
+            background: none;
+            border: solid 2px var(--gray);
+            color: var(--gray);
+            pointer-events: none;
+        }
+
+        form .field {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        form input[type='password'],
+        form input[type='text'],
+        form input[type='submit'] {
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font: inherit;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        form input[type='password'],
+        form input[type='text'] {
+            background-color: #3b4148;
+            border-radius: 0 4px 4px 0;
+        }
+
+        form input[type='password']:focus,
+        form input[type='password']:hover,
+        form input[type='text']:focus,
+        form input[type='text']:hover {
+            background-color: #434a52;
+            outline: none;
+        }
+
+        form input[type='submit'] {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 1rem;
+            padding: calc(1rem - 2px);
+            transition: all 0.2s ease;
+        }
+
+        form input[type='submit']:focus {
+            background: var(--red-light);
+            outline: none;
+        }
+
+        form input[type='submit']:active {
+            background: var(--red-dark);
+        }
+
+        form label {
+            background-color: #363b41;
+            border-radius: 4px 0 0 4px;
+            padding: 1rem;
+        }
+
+        .icon {
+            display: inline-block;
+            fill: #fff;
+            height: 1.5rem;
+            width: 2rem;
+            vertical-align: middle;
+        }
+
+        #footer {
+            display: block;
+            position: absolute;
+            bottom: 20px;
+            font-size: calc(14 / 16)em;
+            text-align: center;
+            width: 100%;
+        }
+
+        #footer ul {
+            padding: 0;
+        }
+
+        #footer li {
+            border-left: solid 1px var(--blue-light);
+            display: inline-block;
+            list-style-type: none;
+            padding: 0 1em;
+        }
+
+        #footer li:first-child {
+            border: none;
+        }
+
+        #footer a {
+            color: var(--blue-light);
+            text-decoration: none;
+        }
+
+        #footer a:hover {
+            color: var(--gray-light);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <img class="logo" src="http://www.cfdesigner.com/codepen/rocket-page-logo.png" alt="Rocket Page Logo"/>
+        <h1>Lorcan Team</h1>
+        <section class="welcome">
+            <p>This interface is only for team members. Log in here</p>
+            <ul class="buttons">
+                <li><a class="primary" href="#">Log In</a></li>
+                <li><a href="#">Go back</a></li>
+            </ul>
+        </section>  
+        
+        <form  class="hidden" action="/login" method="post">
+            <section>
+                <div class="field">
+                    <label for="username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg></label>
+                    <input type="text" placeholder="Username" id="username" name="username" required>
+                </div>
+                <div class="field">
+                    <label for="password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg></label>
+                    <input type="password" placeholder="Password" id="password" name="password" required>
+                </div>
+            </section>
+            <ul class="buttons" >
+                <li><input  value="Log In" class="primary disabled" type="submit"></li>
+                <li ><a href="s1" class="minor" >&#10229; Go back</a></li>
+            </ul>
+        </form>
+    </div>
+    
+    <div id="footer">
+        <ul>
+            <li><a href="s1">Terms</a></li>
+            <li><a href="s1">Privacy</a></li>
+            <li><a href="s1">Contact</a></li>
+        </ul>
+    </div>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" class="icons hidden">
+        <symbol id="user" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z"/>
+        </symbol>
+        <symbol id="lock" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M5 15 L5 30 27 30 27 15 Z M9 15 C9 9 9 5 16 5 23 5 23 9 23 15 M16 20 L16 23"/>
+            <circle cx="16" cy="24" r="1"/>
+        </symbol>
+    </svg>
+    <script>
+      
+
+        $(document).ready(function(){
+            // display login form
+            $('.welcome .primary').click(function(){
+              $('.welcome').hide();
+              $('form').fadeIn();
+            });
+          
+            // display welcome
+            $('form .minor').click(function(){
+              $('form').hide();
+              $('.welcome').fadeIn();
+            });
+            
+            // form validation
+            $('.field input').keyup(function(){
+              var username = $.trim($('.field input[name=username]').val());
+              var password = $.trim($('.field input[name=password]').val());
+            
+              if (username.length > 0 && password.length > 0 ) {
+                $('form .primary').removeClass('disabled');
+              } else {
+                $('form .primary').addClass('disabled');
+              }
+            });
+        });
+    </script>
+</body>
+</html>
