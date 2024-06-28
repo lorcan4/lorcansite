@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Serve static files (your CSS and JS files)
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, 'views' ,)));
 
 // Route to render the form for Lorcan (s1)
 app.get('/s1', (req, res) => {
