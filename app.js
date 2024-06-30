@@ -18,12 +18,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'views' ,)));
 
 // Route to render the form for Lorcan (s1)
-app.get('/s1', (req, res) => {
+app.get('/', (req, res) => {
   res.render('lorcan');
 });
 
 // Route to render the form for Index (s2)
-app.get('/s2', (req, res) => {
+app.get('/store', (req, res) => {
   res.render('index');
 });
 
